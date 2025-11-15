@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check this out!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<video id="vid" autoplay playsinline muted >
+  <source src="lyrics.mp4" type="video/mp4">
+</video>
+
+<script>
+  // Try to unmute after playback starts (not all browsers allow it)
+  const v = document.getElementById("vid");
+  v.addEventListener("canplay", () => {
+    v.play().catch(err => console.log(err));
+  });
+</script>
+
+</body>
+</html>
